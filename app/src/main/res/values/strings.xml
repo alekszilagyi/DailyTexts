@@ -2,5 +2,6 @@
     <string name="app_name">Moravian Daily Texts</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="daily_text">Daily Text Goes Here</string>
     <string name="action_settings">Settings</string>
 </resources>

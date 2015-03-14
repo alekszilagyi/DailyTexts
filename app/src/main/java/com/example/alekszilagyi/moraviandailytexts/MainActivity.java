@@ -1,17 +1,24 @@
 package com.example.alekszilagyi.moraviandailytexts;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import Utilities.DailyTextUtility;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    private DailyTextUtility myDailyTextUtility;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setContent();
     }
 
 
@@ -35,5 +42,14 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setContent()
+    {
+        myDailyTextUtility = new DailyTextUtility();
+        String dailyText = myDailyTextUtility.getTodaysText();
+
+        TextView textView = (TextView)(findViewById(R.id.daily_text_textview));
+        textView.setText(dailyText);
     }
 }
