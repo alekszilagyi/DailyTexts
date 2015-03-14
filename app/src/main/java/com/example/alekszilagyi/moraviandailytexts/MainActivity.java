@@ -1,5 +1,6 @@
 package com.example.alekszilagyi.moraviandailytexts;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -38,7 +39,8 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent settings_intent = new Intent(this, SettingsActivity.class);
+            startActivity(settings_intent);
         }
 
         return super.onOptionsItemSelected(item);

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <PreferenceCategory
+            android:title="@string/notify_preferences_group"
+            android:key="notify_preferences_group">
+
+            <CheckBoxPreference
+                android:key="@string/notify_checkbox_key"
+                android:title="@string/notify_preferences_title"
+                android:summary="@string/notify_preferences_summary"
+                android:defaultValue="true"/>
+
+            <Custom.TimePreference
+                android:key="@string/notify_time_key"
+                android:title="@string/notify_time_title"
+                android:summary="@string/notify_time_summary"
+                android:dependency="@string/notify_checkbox_key" />
+
+        </PreferenceCategory>
+
+</PreferenceScreen>

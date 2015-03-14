@@ -5,9 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
-import Utilities.DailyTextUtility;
 
 /**
  * Created by alekszilagyi on 3/11/15.
