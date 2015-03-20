@@ -8,13 +8,11 @@
             <CheckBoxPreference
                 android:key="@string/notify_checkbox_key"
                 android:title="@string/notify_preferences_title"
-                android:summary="@string/notify_preferences_summary"
                 android:defaultValue="true"/>
 
             <Custom.TimePreference
                 android:key="@string/notify_time_key"
                 android:title="@string/notify_time_title"
-                android:summary="@string/notify_time_summary"
                 android:dependency="@string/notify_checkbox_key" />
 
         </PreferenceCategory>

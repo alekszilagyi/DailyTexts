@@ -3,7 +3,6 @@ package Custom;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.preference.DialogPreference;
-import android.support.v7.app.*;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.view.View;

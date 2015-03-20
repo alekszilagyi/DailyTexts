@@ -2,26 +2,25 @@ package com.example.alekszilagyi.moraviandailytexts;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-import Utilities.DailyTextUtility;
-
-
-public class MainActivity extends ActionBarActivity {
-
-    private DailyTextUtility myDailyTextUtility;
-
+/**
+ * Created by alekszilagyi on 3/19/15.
+ */
+public class AboutActivity extends ActionBarActivity
+{
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.about_activity);
 
-        setContent();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -37,25 +36,17 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        if (id == android.R.id.home) {
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+        }
+
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        else if (id == R.id.action_settings) {
             Intent settings_intent = new Intent(this, SettingsActivity.class);
             startActivity(settings_intent);
         }
-        else if (id == R.id.action_about) {
-            Intent about_intent = new Intent(this, AboutActivity.class);
-            startActivity(about_intent);
-        }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private void setContent()
-    {
-        myDailyTextUtility = new DailyTextUtility();
-        String dailyText = myDailyTextUtility.getTodaysText();
-
-        TextView textView = (TextView)(findViewById(R.id.daily_text_textview));
-        textView.setText(dailyText);
     }
 }
