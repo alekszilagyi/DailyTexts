@@ -1,7 +1,6 @@
 package Utilities;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -43,7 +42,6 @@ public class DailyTextUtility
             HttpURLConnection connection = null;
             try
             {
-                Log.w("Async", "Entering");
                 String site = params[0];
                 url = new URL(site);
                 connection = (HttpURLConnection)(url.openConnection());
@@ -56,19 +54,17 @@ public class DailyTextUtility
                 do
                 {
                     line = stream.readLine();
-                } while (line.matches(startPattern) == false);
+                } while (line != null && line.matches(startPattern) == false);
 
                 line = stream.readLine();
 
-                while (line.matches(endPattern) == false)
+                while (line != null && line.matches(endPattern) == false)
                 {
 
                     line = line.replaceAll("<[a-zA-Z/][a-zA-Z]*[\\s]?[/]?>|\t|&nbsp;", "");
                     text = text.concat(line + "\n");
                     line = stream.readLine();
                 }
-                line = stream.readLine();
-                Log.w("Async", line);
 
                 stream.close();
             }
@@ -80,7 +76,6 @@ public class DailyTextUtility
             {
                 return "Could Not Connect. Please try again later";
             }
-            Log.w("ASync Exit", text);
             return text;
         }
     }
