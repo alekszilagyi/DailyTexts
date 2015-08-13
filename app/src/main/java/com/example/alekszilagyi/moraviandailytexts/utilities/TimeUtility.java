@@ -1,4 +1,4 @@
-package Utilities;
+package com.example.alekszilagyi.moraviandailytexts.utilities;
 
 import java.util.GregorianCalendar;
 

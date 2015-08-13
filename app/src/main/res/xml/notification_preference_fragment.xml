@@ -10,7 +10,7 @@
                 android:title="@string/notify_preferences_title"
                 android:defaultValue="true"/>
 
-            <Custom.TimePreference
+            <com.example.alekszilagyi.moraviandailytexts.custom.TimePreference
                 android:key="@string/notify_time_key"
                 android:title="@string/notify_time_title"
                 android:dependency="@string/notify_checkbox_key" />

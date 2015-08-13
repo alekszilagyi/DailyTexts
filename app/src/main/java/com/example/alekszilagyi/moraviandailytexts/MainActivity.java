@@ -1,6 +1,5 @@
 package com.example.alekszilagyi.moraviandailytexts;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,9 +9,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import Utilities.DailyTextUtility;
-import Utilities.NotificationUtility;
-import Utilities.TimeUtility;
+import com.example.alekszilagyi.moraviandailytexts.settings.SettingsActivity;
+import com.example.alekszilagyi.moraviandailytexts.utilities.DailyTextUtility;
+import com.example.alekszilagyi.moraviandailytexts.utilities.NotificationUtility;
+import com.example.alekszilagyi.moraviandailytexts.utilities.TimeUtility;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -63,7 +63,7 @@ public class MainActivity extends ActionBarActivity {
 
     private void setContent()
     {
-        //1462374033773
+        System.out.println("SETTING THE CONTENT!!");
         myDailyTextUtility = new DailyTextUtility();
         String dailyText = myDailyTextUtility.getTodaysText();
 
@@ -83,13 +83,12 @@ public class MainActivity extends ActionBarActivity {
     {
 
         @Override
-        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
-        {
-            System.out.println("Setting Changed: " + key);
-            switch(key)
-            {
-                case "notify_time_key": //do nothing
-                default: //do nothing
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+            if (key.compareTo(getString(R.string.notify_checkbox_key)) == 0) {
+                notificationUtility.initializeNotifications();
+            }
+            if (key.compareTo(getString(R.string.notify_time_key)) == 0) {
+                notificationUtility.initializeNotifications();
             }
         }
     };

@@ -1,4 +1,4 @@
-package Utilities;
+package com.example.alekszilagyi.moraviandailytexts.utilities;
 
 import android.os.AsyncTask;
 

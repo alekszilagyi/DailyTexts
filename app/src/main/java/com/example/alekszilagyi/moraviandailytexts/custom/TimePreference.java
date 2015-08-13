@@ -1,4 +1,4 @@
-package Custom;
+package com.example.alekszilagyi.moraviandailytexts.custom;
 
 import android.content.Context;
 import android.content.res.TypedArray;
